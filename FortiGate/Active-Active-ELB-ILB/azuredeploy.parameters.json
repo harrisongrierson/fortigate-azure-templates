@@ -1,24 +1,24 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "adminUsername": {
-            "value": "## TO BE DEFINED ##"
+            "value": "theinstillery-admin"
         },
         "adminPassword": {
-            "value": "## TO BE DEFINED ##"
+            "value": null
         },
-        "FortiGateNamePrefix": {
-            "value": "## TO BE DEFINED ##"
+        "fortigateNamePrefix": {
+            "value": "hg-prod-forti-vm-"
         },
-        "FortiGateImageSKU": {
+        "fortigateImageSKU": {
             "value": "fortinet_fg-vm"
         },
-        "FortiGateImageVersion": {
+        "fortigateImageVersion": {
             "value": "latest"
         },
         "instanceType": {
-            "value": "Standard_F2s"
+            "value": "Standard_F4s_v2"
         },
         "publicIPNewOrExisting": {
             "value": "new"
@@ -27,7 +27,7 @@
             "value": "FGTLBPublicIP"
         },
         "publicIPResourceGroup": {
-            "value": ""
+            "value": "hg-prod-lznet-rg-0"
         },
         "publicIPAddressType": {
             "value": "Static"
@@ -36,38 +36,39 @@
             "value": "new"
         },
         "vnetName": {
-            "value": ""
+            "value": "hg-prod-hub-vnet-0"
         },
         "vnetResourceGroup": {
-            "value": ""
+            "value": "hg-prod-lznet-rg-0"
         },
         "vnetAddressPrefix": {
-            "value": "172.16.136.0/22"
+            "value": "172.22.0.0/22"
         },
         "subnet1Name": {
-            "value": "ExternalSubnet"
+            "value": "hg-prod-ext-snet-0"
         },
         "subnet1Prefix": {
-            "value": "172.16.136.0/26"
+            "value": "172.22.2.0/25"
         },
         "subnet2Name": {
-            "value": "InternalSubnet"
+            "value": "hg-prod-int-snet-0"
         },
         "subnet2Prefix": {
-            "value": "172.16.136.64/26"
+            "value": "172.22.2.128/25"
         },
         "subnet3Name": {
-            "value": "ProtectedSubnet"
+            "value": "protected"
         },
         "subnet3Prefix": {
-            "value": "172.16.137.0/24"
+            "value": "172.22.3.0/25"
         },
         "location": {
-            "value": "[resourceGroup().location]"
+            "value": "australiaeast"
         },
-        "FortinetTags": {
+        "fortinetTags": {
             "value": {
                 "publisher": "Fortinet",
+                "template": "Active-Active-ELB-ILB",
                 "provider": "6EB3B02F-50E5-4A3E-8CB8-2E12925831AA"
             }
         }
